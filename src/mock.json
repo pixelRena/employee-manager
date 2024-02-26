@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Jade Walker",
+    "email": "jdwalker@tech.com",
+    "role": "Frontend Developer",
+    "department": "IT Commercial"
+  },
+  {
+    "id": 2,
+    "name": "Thomas Johnson",
+    "email": "tjohnson@tech.com",
+    "role": "Project Manager",
+    "department": "IT Marketing"
+  },
+  {
+    "id": 3,
+    "name": "Alice Cooper",
+    "email": "acooper@tech.com",
+    "role": "Backend Developer",
+    "department": "IT Commercial"
+  }
+]
