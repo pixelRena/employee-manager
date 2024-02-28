@@ -10,6 +10,7 @@ import {
   Flex,
   Text,
   ButtonGroup,
+  Button,
 } from "@chakra-ui/react"
 import {
   DownloadIcon,
@@ -19,12 +20,26 @@ import {
   SettingsIcon,
 } from "@chakra-ui/icons"
 import mockData from "../mock.json"
+import { useContext } from "react"
+import { User } from "../utils/user.context.jsx"
 
 const EmployeeTable = () => {
+  const { state, logoutUser } = useContext(User)
+  const { user } = state
+  const { firstName, lastName } = user
+
   return (
     <>
       <Flex justifyContent="space-between">
-        <Text as="h1" fontSize={{ base: "xl", md: "3xl" }} float="start">
+        <Text fontSize="3xl">
+          Hi, {firstName} {lastName}!
+        </Text>
+        <Button onClick={logoutUser} colorScheme="orange">
+          Log Out
+        </Button>
+      </Flex>
+      <Flex justifyContent="space-between">
+        <Text as="h1" fontSize={{ base: "xl", md: "2xl" }} float="start">
           Employee Management
         </Text>
         <ButtonGroup>
@@ -32,6 +47,7 @@ const EmployeeTable = () => {
           <IconButton
             aria-label="Download employee data as CSV"
             icon={<DownloadIcon />}
+            colorScheme="green"
           />
         </ButtonGroup>
       </Flex>
@@ -48,7 +64,7 @@ const EmployeeTable = () => {
               <Th>Work Email</Th>
               <Th>Role</Th>
               <Th>
-                Department{" "}
+                Department
                 <IconButton
                   aria-label="Sort by Department (Asc/Desc)"
                   bg="transparent"
@@ -69,7 +85,7 @@ const EmployeeTable = () => {
                 <Td>{department}</Td>
                 <Td>
                   <ButtonGroup>
-                    <IconButton icon={<DeleteIcon />} />
+                    <IconButton icon={<DeleteIcon />} colorScheme="red" />
                     <IconButton icon={<SettingsIcon />} />
                   </ButtonGroup>
                 </Td>
