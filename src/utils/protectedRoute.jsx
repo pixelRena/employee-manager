@@ -3,7 +3,7 @@ import { User } from "./user.context"
 import { useContext } from "react"
 
 // Protected Route that prevents the user from going to the dashboard without authentication
-export const RequireAuth = ({ children }) => {
+export const ProtectedRoute = ({ children }) => {
   const { state } = useContext(User)
   const { user } = state
 

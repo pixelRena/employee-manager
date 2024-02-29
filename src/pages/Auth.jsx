@@ -10,7 +10,6 @@ import {
   AlertTitle,
   AlertDescription,
   CloseButton,
-  useDisclosure,
   Button,
 } from "@chakra-ui/react"
 import HeroSVG from "../assets/hero.svg"
@@ -21,7 +20,6 @@ import { useNavigate } from "react-router-dom"
 const Auth = () => {
   const { state } = useContext(User)
   const { user } = state
-  // const { firstName, lastName } = user
   const { getGoogleAuth, loading, errorMessage } = useFetch(
     "http://localhost:5152/authenticate"
   )
@@ -34,7 +32,7 @@ const Auth = () => {
         client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
         callback: getGoogleAuth,
       })
-
+      // Todo: Check another way for rendering button
       google.accounts.id.renderButton(document.getElementById("auth-button"), {
         theme: "filled_blue",
         text: "authenticate",
@@ -43,28 +41,8 @@ const Auth = () => {
     }
   }, [getGoogleAuth])
 
-  const { onClose } = useDisclosure({ defaultIsOpen: true })
-
   return (
     <Flex flexDirection="column" alignItems="center" gap={5}>
-      {/* <Alert
-        hidden={!errorMessage}
-        status="error"
-        position="absolute"
-        width="50%"
-        top="30px"
-      >
-        <AlertIcon />
-        <AlertTitle>An Error Occurred</AlertTitle>
-        <AlertDescription>{errorMessage}</AlertDescription>
-        <CloseButton
-          alignSelf="flex-start"
-          position="relative"
-          right={-1}
-          top={-1}
-          onClick={onClose}
-        />
-      </Alert> */}
       <Box>
         <Text as="h1" fontSize="3xl">
           Welcome to EMD!

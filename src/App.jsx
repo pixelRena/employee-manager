@@ -1,9 +1,9 @@
 import "./App.css"
 import { Flex, Box } from "@chakra-ui/react"
-import EmployeeTable from "./pages/EmployeeTable"
+import EmployeeDashboard from "./pages/EmployeeDashboard"
 import Auth from "./pages/Auth"
 import { Routes, Route } from "react-router-dom"
-import { RequireAuth } from "./utils/requireAuth"
+import { ProtectedRoute } from "./utils/protectedRoute"
 
 function App() {
   return (
@@ -27,9 +27,9 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <RequireAuth>
-                <EmployeeTable />
-              </RequireAuth>
+              <ProtectedRoute>
+                <EmployeeDashboard />
+              </ProtectedRoute>
             }
           />
         </Routes>

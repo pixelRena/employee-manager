@@ -1,6 +1,9 @@
 # Employee Manager
 
-WIP
+Requirements:
+
+- MYSQL WorkBench v6.3.3
+- MYSQL Server 8.3.0
 
 Resources:
 
